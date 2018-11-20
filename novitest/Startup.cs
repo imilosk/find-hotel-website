@@ -51,6 +51,9 @@ namespace novitest
             services.AddSwaggerGen(options =>
                 options.SwaggerDoc("v1", new Info { Title = "Conference Planner API", Version = "v1" })
             );
+
+            services.AddDbContext<countriesContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("countriesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

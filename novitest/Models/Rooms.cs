@@ -16,7 +16,7 @@ namespace novitest.Models
         public int Price { get; set; }
         public string Img { get; set; }
         public int HotelId { get; set; }
-
+        
         public Hotels Hotel { get; set; }
         public ICollection<Reservation> Reservation { get; set; }
     }

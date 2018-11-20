@@ -19,13 +19,12 @@ namespace novitest.Models
         public int Parking { get; set; }
         public int PetAllowed { get; set; }
         public int Fitness { get; set; }
-        public int Food { get; set; }
-        public int CountryId { get; set; }
         public int Price { get; set; }
         public string Img1 { get; set; }
         public string Img2 { get; set; }
-
-        public Countries Country { get; set; }
-        public ICollection<Rooms> Rooms { get; set; }
+        public int CountryId { get; set; }
+        public virtual Countries Country { get; set; }
+        public int Food { get; set; }
+        public virtual ICollection<Rooms> Rooms { get; set; }
     }
 }

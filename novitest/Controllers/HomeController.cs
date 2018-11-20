@@ -12,6 +12,23 @@ namespace novitest.Controllers
     {
         public IActionResult Index()
         {
+           
+           hotelsContext hotelsContext = new hotelsContext();
+            
+           hotelsContext.Hotels
+              .GroupJoin(hotelsContext.Countries,
+               h => h.CountryId,
+               c => c.Id,
+               (ho, co) => new {
+                   Hotels = ho,
+                   Countries = co
+               }).ToList();            
+            
+            var q = from h in hotelsContext.Hotels
+                    select h;
+
+            ViewData["hotels"] = q;
+
             return View();
         }
 

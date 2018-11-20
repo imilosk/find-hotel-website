@@ -53,8 +53,6 @@ namespace novitest.Models
                     .IsRequired()
                     .HasColumnName("address");
 
-                entity.Property(e => e.CountryId).HasColumnName("countryID");
-
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasColumnName("description")
@@ -86,11 +84,16 @@ namespace novitest.Models
 
                 entity.Property(e => e.Wifi).HasColumnName("wifi");
 
+                entity.Property(e => e.CountryId).HasColumnName("countryID");
+
+                // entity.Property(e => e.Country).HasColumnName("country");
+
                 entity.HasOne(d => d.Country)
                     .WithMany(p => p.Hotels)
                     .HasForeignKey(d => d.CountryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Hotels__countryI__208CD6FA");
+                    .HasConstraintName("CountryId")
+                    .IsRequired();
             });
 
             modelBuilder.Entity<Reservation>(entity =>
