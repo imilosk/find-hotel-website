@@ -26,5 +26,7 @@ namespace novitest.Models
         public virtual Countries Country { get; set; }
         public int Food { get; set; }
         public virtual ICollection<Rooms> Rooms { get; set; }
+
+
     }
 }

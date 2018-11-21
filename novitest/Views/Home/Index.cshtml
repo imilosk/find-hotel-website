@@ -2,6 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-@foreach (var item in ViewData["hotels"] as IEnumerable<Hotels>) {
-    <p>@item.Name + @item.Country.Name</p>
+<form asp-controller="" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+
+
+@foreach (var item in ViewData["hotels"] as IEnumerable<Hotels>)
+{
+    <a href="Hotel?id=@item.Id" id="name@item.Id"><p>@item.Name + @item.Country.Name</p></a>
 }

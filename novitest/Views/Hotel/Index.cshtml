@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Hotel";
+}
+
+@foreach (var item in ViewData["rooms"] as IEnumerable<Rooms>)
+{
+    <a href="" id="name@item.Id"><p>@item.Name + @item.Hotel.Name</p></a>
+}
+

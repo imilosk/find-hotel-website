@@ -10,44 +10,28 @@ namespace novitest.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index(string searchString)
         {
-           
-           hotelsContext hotelsContext = new hotelsContext();
-            
-           hotelsContext.Hotels
-              .GroupJoin(hotelsContext.Countries,
-               h => h.CountryId,
-               c => c.Id,
-               (ho, co) => new {
-                   Hotels = ho,
-                   Countries = co
-               }).ToList();            
-            
-            var q = from h in hotelsContext.Hotels
+            hotelsContext hotelsContext = new hotelsContext();
+            hotelsContext.Hotels
+                .GroupJoin(hotelsContext.Countries,
+                 h => h.CountryId,
+                 c => c.Id,
+                 (ho, co) => new {
+                     Hotels = ho,
+                     Countries = co
+                 }).ToList();
+
+            var hotels = from h in hotelsContext.Hotels
                     select h;
 
-            ViewData["hotels"] = q;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                hotels = hotels.Where(h => h.Name.Contains(searchString));
+            }
 
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            ViewData["hotels"] = hotels;
             return View();
         }
 
