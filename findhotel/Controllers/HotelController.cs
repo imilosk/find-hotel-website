@@ -25,6 +25,12 @@ namespace novitest.Controllers
                         where r.HotelId == id
                         select r;
             ViewData["rooms"] = rooms;
+
+            var hotel = from r in hotelsContext.Hotels
+                        where r.Id == id
+                        select r;
+            ViewData["hotel"] = hotel;
+
             return View();
         }
     }

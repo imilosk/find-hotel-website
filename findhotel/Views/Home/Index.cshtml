@@ -2,12 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<form asp-controller="" asp-action="Index">
-    <p>
-        Title: <input type="text" name="SearchString">
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+
+<div id="logo">
+    <img src="/images/app/logo_big.png" id="logopic" />
+</div>
+<div id="contenthome">
+    <div id="searchcontent">
+        <form asp-controller="" asp-action="Index">
+                <input type="text" name="SearchString" id="search" placeholder="Search...">
+                <div id="buttonscontent">
+                    <input type="submit" value="Search" id="searchbutton" />
+                    <input type="submit" value="All Hotels" id="searchbutton" />
+                </div>
+        </form>
+    </div>
+</div>
 
 
 

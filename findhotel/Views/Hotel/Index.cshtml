@@ -2,8 +2,22 @@
     ViewData["Title"] = "Hotel";
 }
 
+@foreach (var item in ViewData["hotel"] as IEnumerable<Hotels>)
+{
+    <p>Name: @item.Name</p>
+    <p>Address: @item.Address</p>
+    <p>Rating: @item.Rating</p>
+    <p>Country: @item.Country.Name</p>
+    <p>@item.Description</p>
+}
+
+</br>
+</br>
+</br>
+
+<p>Rooms:</p>
 @foreach (var item in ViewData["rooms"] as IEnumerable<Rooms>)
 {
-    <a href="" id="name@item.Id"><p>@item.Name + @item.Hotel.Name</p></a>
+    <a href="" id="name@item.Id"><p>@item.Name</p></a>
 }
 
