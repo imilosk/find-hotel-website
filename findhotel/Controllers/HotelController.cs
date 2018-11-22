@@ -12,6 +12,16 @@ namespace novitest.Controllers
         public async Task<IActionResult> Index(int id)
         {
             hotelsContext hotelsContext = new hotelsContext();
+
+            hotelsContext.Hotels
+                .GroupJoin(hotelsContext.Countries,
+                 h => h.CountryId,
+                 c => c.Id,
+                 (ho, co) => new {
+                     Hotels = ho,
+                     Countries = co
+                 }).ToList();
+
             hotelsContext.Rooms
                 .GroupJoin(hotelsContext.Hotels,
                  r => r.HotelId,
