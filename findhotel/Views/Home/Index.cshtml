@@ -18,9 +18,12 @@
     </div>
 </div>
 
-
-
-@foreach (var item in ViewData["hotels"] as IEnumerable<Hotels>)
-{
-    <a href="Hotel?id=@item.Id" id="name@item.Id"><p>@item.Name + @item.Country.Name</p></a>
-}
+<table id="hotels">
+    @foreach (var item in ViewData["hotels"] as IEnumerable<Hotels>)
+    {
+        <tr>
+            <td><a href="Hotel?id=@item.Id" id="name@item.Id"><img src="~/images/hotels/@item.Img1" width="50%" /></a></td>
+            <td><a href="Hotel?id=@item.Id" id="name@item.Id"><p>@item.Name</p><p>@item.Rating stars</p><p>@item.Address</p><p>@item.Country.Name</p></a></td>
+        </tr>
+    }
+</table>
