@@ -4,20 +4,34 @@
 
 @foreach (var item in ViewData["hotel"] as IEnumerable<Hotels>)
 {
-    <p>Name: @item.Name</p>
-    <p>Address: @item.Address</p>
-    <p>Rating: @item.Rating</p>
-    <p>Country: @item.Country.Name</p>
-    <p>@item.Description</p>
+    <div class="name">@item.Name</div>
+    for (var test = 0; test < item.Rating; test++)
+    {
+        <img src="~/images/app/star.png" width="40px" />
+    }
+    <p class="address">@item.Address</p>
+    <p class="country">@item.Country.Name</p>
+
+    <table id="hotelpics">
+        <tr>
+            <td><img src="~/images/hotels/@item.Img1" width="50%" /></td>
+            <td><img src="~/images/hotels/@item.Img2" width="50%" /></td>
+        </tr>
+    </table>
+    <p class="description">@item.Description</p>
 }
 
 </br>
 </br>
 </br>
 
-<p>Rooms:</p>
-@foreach (var item in ViewData["rooms"] as IEnumerable<Rooms>)
-{
-    <a href="" id="name@item.Id"><p>@item.Name</p></a>
-}
+<table id="rooms">
+    @foreach (var item in ViewData["rooms"] as IEnumerable<Rooms>)
+    {
+        <tr>
+            <td><img src="~/images/rooms/@item.Img" width="50%" /></td>
+            <td>@item.Name</td>
+        </tr>
+    }
+</table>
 

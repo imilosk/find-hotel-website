@@ -1,7 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 20px;
 }
 
@@ -119,4 +119,50 @@ a {
 a:hover {
     color: black;
     text-decoration: none;
+}
+
+.name {
+    float: left;
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 2px;
+    margin-right: 10px;
+}
+
+.address {
+    clear: both;
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+.country {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.description {
+    font-size: 15px;
+    margin: 0;
+    margin-top: 40px;
+}
+
+#hotelpics {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#rooms {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#rooms tr {
+    border-bottom: 1px solid #ddd;
+}
+
+#rooms tr td {
+    padding: 10px;
 }
