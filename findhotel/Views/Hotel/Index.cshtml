@@ -5,7 +5,7 @@
 @foreach (var item in ViewData["hotel"] as IEnumerable<Hotels>)
 {
     <div class="name">@item.Name</div>
-    for (var test = 0; test < item.Rating; test++)
+    for (var i = 0; i < item.Rating; i++)
     {
         <img src="~/images/app/star.png" width="40px" />
     }
@@ -28,10 +28,27 @@
 <table id="rooms">
     @foreach (var item in ViewData["rooms"] as IEnumerable<Rooms>)
     {
-        <tr>
-            <td><img src="~/images/rooms/@item.Img" width="50%" /></td>
+        <tr onclick="popup('@item.Name', '@item.Description', '@item.Price', '@item.Img')">
+            <td><img src="~/images/rooms/@item.Img" width="50%"/></td>
             <td>@item.Name</td>
         </tr>
     }
 </table>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <div id="name"></div>
+        </div>
+        <div class="modal-body">
+            <div id="description"></div>
+            <div id="roompicture"></div>
+            <div id="price"></div>
+        </div>
+        <div class="modal-footer">
+            <input type="button" value="Reserve" id="reservebutton"/>
+        </div>
+    </div>
+</div>
 
