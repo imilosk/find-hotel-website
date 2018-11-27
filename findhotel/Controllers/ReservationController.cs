@@ -31,7 +31,7 @@ namespace novitest.Controllers
             string email = Request.Form["email"];
             DateTime datefrom = DateTime.ParseExact(Request.Form["datefrom"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
             DateTime dateto = DateTime.ParseExact(Request.Form["dateto"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            int roomid = (int) Convert.ToInt32(Request.Form["roomid"]);
+            int roomid = Convert.ToInt32(Request.Form["roomid"]);
 
             var r = new Reservation
             {

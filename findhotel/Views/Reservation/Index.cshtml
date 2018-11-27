@@ -1,24 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Hotel";
+    ViewData["Title"] = "Reserve";
 }
 
-@if (ViewData["test"] != null)
-{
-    @ViewData["test"]
-}
-
-<script>
-    $(function () {
-        $("#dateto").datepicker();
-    });
-</script>
-
-<form action="/api/Reservations" method="POST">
-    <input type="hidden" id="roomid" value="@ViewData["id"]" /> <br />
-    <input type="text" id="name" name="name" /> <br />
-    <input type="text" id="surname" name="surname" /> <br />
-    <input type="text" id="email" name="email" /> <br />
-    <input type="date" id="datefrom" name="datefrom"> <br />
-    <input type="date" id="dateto" name="dateto"> <br />
-    <input type="submit" value="Submit" id="submitButtom" />
-</form>
+<div id="reservationform">
+    <form action="/api/Reservations" method="POST" onsubmit="return validateForm()">
+        <p id="restext">Reservation Form</p>
+        <input type="text" id="name" name="name" placeholder="Name" /> <br />
+        <input type="text" id="surname" name="surname" placeholder="Surname" /> <br />
+        <input type="text" id="email" name="email" placeholder="Email" /> <br />
+        <input type="date" id="datefrom" name="datefrom"> - <input type="date" id="dateto" name="dateto"> <br />
+        <input type="submit" value="Reserve" id="reservebutton" />
+        <input type="hidden" name="roomid" id="roomid" value="@ViewData["id"]" />
+    </form>
+</div>
