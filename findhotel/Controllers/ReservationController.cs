@@ -19,7 +19,7 @@ namespace novitest.Controllers
 
         [HttpPost]
         [Route("/api/Reservations")]
-        public async Task<string> ReadStringDataManual()
+        public async Task<IActionResult> ReadStringDataManual()
         {
 
             hotelsContext hotelsContext = new hotelsContext();
@@ -35,7 +35,7 @@ namespace novitest.Controllers
             
             hotelsContext.Countries.Add(c);
             hotelsContext.SaveChanges();
-            return name;   
+            return Redirect("/");
         }
 
     }
