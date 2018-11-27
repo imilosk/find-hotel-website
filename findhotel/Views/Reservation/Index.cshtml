@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Hotel";
+}
+
+@if(ViewData["test"] != null)
+{
+    @ViewData["test"]
+}
+
+<form action="/api/Reservations" method="POST">
+    <input type="hidden" id="id" value="@ViewData["id"]" /> <br />
+    <input type="text" id="name" name="name" /> <br />
+    <input type="submit" value="Submit" id="submitButtom" />
+</form>

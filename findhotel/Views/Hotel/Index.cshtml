@@ -28,8 +28,8 @@
 <table id="rooms">
     @foreach (var item in ViewData["rooms"] as IEnumerable<Rooms>)
     {
-        <tr onclick="popup('@item.Name', '@item.Description', '@item.Price', '@item.Img')">
-            <td><img src="~/images/rooms/@item.Img" width="50%"/></td>
+        <tr id="@item.Id" onclick="popup('@item.Name', '@item.Description', '@item.Price', '@item.Img', @item.Id)">
+            <td><img src="~/images/rooms/@item.Img" width="50%" /></td>
             <td>@item.Name</td>
         </tr>
     }
@@ -47,8 +47,22 @@
             <div id="price"></div>
         </div>
         <div class="modal-footer">
-            <input type="button" value="Reserve" id="reservebutton"/>
+            <input type="button" value="Reserve" id="reservebutton" onclick="redirect()" />
         </div>
     </div>
 </div>
+
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+    function myMap() {
+        var mapProp = {
+            center: new google.maps.LatLng(51.508742, -0.120850),
+            zoom: 5,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhF9LliNmRMfpWAEsZI_0HJH77QJVyIdY&callback=myMap"></script>
 

@@ -84,7 +84,13 @@ namespace novitest
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                );
+                routes.MapRoute(
+                    name: "default2",
+                    template: "{controller=Reservation}/{action=Index}/{id?}"
+                );
+
             });
         }
     }

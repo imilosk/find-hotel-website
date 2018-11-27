@@ -8,7 +8,9 @@ var span = document.getElementsByClassName("close")[0];
 var image = document.createElement("img");
 var imageParent = document.getElementById("roompicture");
 
-function popup(name, description, price, roomimage) {
+var lastRoomId;
+
+function popup(name, description, price, roomimage, roomId) {
     modal.style.display = "block";
     document.getElementById("name").innerHTML = name;
     document.getElementById("description").innerHTML = description;
@@ -18,6 +20,7 @@ function popup(name, description, price, roomimage) {
         image.src = "/images/rooms/" + roomimage;
         imageParent.appendChild(image);
     }
+    lastRoomId = roomId;
 }
 
 span.onclick = function () {
@@ -28,4 +31,8 @@ window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+
+function redirect() {
+    $(location).attr('href', 'Reservation?id=' + lastRoomId);
 }

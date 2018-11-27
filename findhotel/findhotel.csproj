@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Reservation\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Hotel\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
