@@ -14,7 +14,7 @@
 </script>
 
 <form action="/api/Reservations" method="POST">
-    <input type="hidden" id="roomid" value="@ViewData["id"]" /> <br />
+    <input type="hidden" id="roomid" name ="roomid" value="@ViewData["id"]" /> <br />
     <input type="text" id="name" name="name" /> <br />
     <input type="text" id="surname" name="surname" /> <br />
     <input type="text" id="email" name="email" /> <br />
