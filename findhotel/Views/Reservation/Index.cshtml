@@ -2,13 +2,23 @@
     ViewData["Title"] = "Hotel";
 }
 
-@if(ViewData["test"] != null)
+@if (ViewData["test"] != null)
 {
     @ViewData["test"]
 }
 
+<script>
+    $(function () {
+        $("#dateto").datepicker();
+    });
+</script>
+
 <form action="/api/Reservations" method="POST">
-    <input type="hidden" id="id" value="@ViewData["id"]" /> <br />
+    <input type="hidden" id="roomid" value="@ViewData["id"]" /> <br />
     <input type="text" id="name" name="name" /> <br />
+    <input type="text" id="surname" name="surname" /> <br />
+    <input type="text" id="email" name="email" /> <br />
+    <input type="date" id="datefrom" name="datefrom"> <br />
+    <input type="date" id="dateto" name="dateto"> <br />
     <input type="submit" value="Submit" id="submitButtom" />
 </form>

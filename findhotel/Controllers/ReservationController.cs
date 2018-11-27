@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,16 +25,26 @@ namespace novitest.Controllers
 
             hotelsContext hotelsContext = new hotelsContext();
 
-            int id = hotelsContext.Countries.Max(h => (int)h.Id) + 1;
+            int id = hotelsContext.Reservation.Max(h => (int)h.Id) + 1;
             string name = Request.Form["name"];
+            string surname = Request.Form["surname"];
+            string email = Request.Form["email"];
+            DateTime datefrom = DateTime.ParseExact(Request.Form["datefrom"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            DateTime dateto = DateTime.ParseExact(Request.Form["dateto"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            int roomid = (int) Convert.ToInt32(Request.Form["roomid"]);
 
-            var c = new Countries
+            var r = new Reservation
             {
                 Id = id,
-                Name = name
+                Name = name,
+                Surname = surname,
+                Email = email,
+                DateFrom = datefrom,
+                DateTo = dateto,
+                RoomId = roomid
             };
             
-            hotelsContext.Countries.Add(c);
+            hotelsContext.Reservation.Add(r);
             hotelsContext.SaveChanges();
             return Redirect("/");
         }
