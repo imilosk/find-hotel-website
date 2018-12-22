@@ -2,14 +2,24 @@
     ViewData["Title"] = "Reserve";
 }
 
-<div id="reservationform">
-    <form action="/api/Reservations" method="POST" onsubmit="return validateForm()">
-        <p id="restext">Reservation Form</p>
-        <input type="text" id="name" name="name" placeholder="Name" /> <br />
-        <input type="text" id="surname" name="surname" placeholder="Surname" /> <br />
-        <input type="text" id="email" name="email" placeholder="Email" /> <br />
-        <input type="date" id="datefrom" name="datefrom"> - <input type="date" id="dateto" name="dateto"> <br />
-        <input type="submit" value="Reserve" id="reservebutton" />
-        <input type="hidden" name="roomid" id="roomid" value="@ViewData["id"]" />
-    </form>
-</div>
+@if (ViewData["test"] != null)
+{
+    @ViewData["test"]
+}
+
+<script>
+    $(function () {
+        $("#dateto").datepicker();
+    });
+</script>
+
+<form action="/api/Reservations" method="POST">
+    <input type="hidden" id="roomid" name ="roomid" value="@ViewData["id"]" /> <br />
+    <input type="text" id="name" name="name" /> <br />
+    <input type="text" id="surname" name="surname" /> <br />
+    <input type="text" id="email" name="email" /> <br />
+    <input type="date" id="datefrom" name="datefrom"> <br />
+    <input type="date" id="dateto" name="dateto"> <br />
+    <input type="submit" value="Submit" id="submitButtom" />
+</form>
+>>>>>>> 741362dbdd5161030f51a5f97a90c8b0e37dfa29
